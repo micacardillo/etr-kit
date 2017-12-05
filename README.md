@@ -10,7 +10,7 @@ nvm install 6.12.0
 nvm alias default 6.12.0
 ```
 
-Then source or reopen all terminals. `nvm --version` should now return 6.12.0
+Then source or reopen all terminals. `npm --version` should now return 6.12.0
 
 Now install a recent version of NPM globally.
 
