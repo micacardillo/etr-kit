@@ -1,13 +1,14 @@
 import { app, BrowserWindow, screen } from 'electron';
 import { autoUpdater } from 'electron-updater';
-import crashReporterInit from './shared/crash-reporter';
+import crashReporter from './shared/crash-reporter';
 import electronLog from 'electron-log';
 import * as url from 'url';
 
-crashReporterInit();
-electronLog.transports.file.level = 'info';
-electronLog.info('App starting...');
-process.on('uncaughtException', error => console.log('error', error));
+// crashReporter();
+// electronLog.transports.file.level = 'info';
+// electronLog.info('App starting...');
+// process.on('uncaughtException', error => console.log('error', error));
+
 let mainWindow: Electron.BrowserWindow;
 
 // Keep a reference for dev mode
