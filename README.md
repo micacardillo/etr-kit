@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-**install nvm** _UNIX_ [https://github.com/creationix/nvm(https://github.com/creationix/nvm)
+**install nvm** _UNIX_ [https://github.com/creationix/nvm](https://github.com/creationix/nvm)
 _Windows_ [https://github.com/coreybutler/nvm-windows](https://github.com/coreybutler/nvm-windows)
 
 ```
@@ -86,14 +86,14 @@ require('devtron').install() // You should now see a Devtron tab added to the De
 
 ### Main Process Vs. Renderer Process
 
-    ![Venn Diagram](https://cdn-images-1.medium.com/max/1000/1*-zqAENneDn62xAKmrPTqnA.png)
+[link](https://cdn-images-1.medium.com/max/1000/1*-zqAENneDn62xAKmrPTqnA.png)
 
 ### Cross-Process Communication
 
 IPC
 
 * message-like interface
-* how does it work under the hood? (https://en.wikipedia.org/wiki/Named_pipe)[named pipes]
+* how does it work under the hood? [https://en.wikipedia.org/wiki/Named_pipe](named pipes)
 * values must be serializable, meaning must be able to JSON.stringify(value)
 
 REMOTE
