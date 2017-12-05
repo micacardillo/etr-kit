@@ -42,6 +42,12 @@ npm install
 npm run dev
 ```
 
+**run tests**
+
+```
+npm run test
+```
+
 ## Highlights
 
 * Automatic transpilation, building, and hot-reloading on file save.
@@ -64,11 +70,6 @@ npm run dev
 * Pipes and Interfaces between UI and the parallel services.
 * Self-updating distribution (delta applied from tag of Github repo, for example).
 
-### State Management and Middleware
-
-* selectors derive values from state, then use the selectors in mapStateToProps
-* memoized selectors (reselect library)
-
 ### Install Devtron
 
 ```
@@ -79,6 +80,11 @@ require('devtron').install() // You should now see a Devtron tab added to the De
 ```
 
 ## Study Topics
+
+### STATELESS VERSUS STATEFUL REACT COMPONENTS
+
+* [see this article](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
+* [see this article](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md)
 
 ### Electron is Chrome (Multi-Process Architecture)
 
@@ -120,11 +126,6 @@ console.log(foo);
 * renderer process task pool that will split and balance a job across multiple processes
 * library for promise-like background processes that auto-scale based on usage
   [https://github.com/electron-userland/electron-remote](https://github.com/electron-userland/electron-remote)
-
-### STATELESS VERSUS STATEFUL COMPONENTS
-
-* [see this article](https://code.tutsplus.com/tutorials/stateful-vs-stateless-functional-components-in-react--cms-29541)
-* [see this article](https://github.com/piotrwitek/react-redux-typescript-guide/blob/master/README.md)
 
 ## BUILDING DISTRIBUTABLE APP
 
