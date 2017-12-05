@@ -1,0 +1,127 @@
+{
+  "name": "etr-kit",
+  "version": "1.0.0",
+  "description": "Electron TypeScript React Starter Kit",
+  "author": {
+    "name": "Mica Cardillo",
+    "email": "mica.cardillo@gmail.com",
+    "url": "https://github.com/soupala"
+  },
+  "homepage": "https://github.com/soupala/etr-kit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soupala/etr-kit.git"
+  },
+  "license": "MIT",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev":
+      "concurrently \"npm run webpack-server\" \"wait-on http://localhost:3013 && npm run electron-dev\"",
+    "electron-prod": "electron .",
+    "electron-dev": "npm run build-main && electron . --dev",
+    "test": "jest --coverage",
+    "test-watch": "jest --coverage --watchAll",
+    "webpack-server": "webpack-dev-server --hot --port 3013 --env=dev --progress --colors",
+    "webpack-build": "rimraf dist && npm run build-renderer && npm run build-main",
+    "build-renderer": "webpack --env=prod --progress --colors",
+    "build-main": "webpack --env=main --progress --colors",
+    "electron-package":
+      "electron-packager ./ --out=./builds --overwrite --ignore=node_modules --ignore=e2e --ignore=jest --ignore=devtools --ignore=webpack --ignore=src --ignore=tsconfig.json --ignore=tslint.json --ignore=webpack.config.json --ignore=.idea --ignore=.vscode",
+    "package-app": "npm run webpack-build && npm run electron-package"
+  },
+  "dependencies": {
+    "electron": "1.7.9",
+    "electron-log": "2.2.11",
+    "electron-updater": "2.16.1",
+    "react": "16.1.1",
+    "react-dom": "16.1.1",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "react-test-renderer": "16.1.1",
+    "react-transition-group": "1.2.1",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0",
+    "reselect": "3.0.1",
+    "styled-components": "latest"
+  },
+  "devDependencies": {
+    "@types/jest": "21.1.8",
+    "@types/lodash": "4.14.85",
+    "@types/react": "16.0.25",
+    "@types/react-dom": "16.0.3",
+    "@types/react-redux": "5.0.13",
+    "@types/react-test-renderer": "16.0.0",
+    "@types/webpack-dev-server": "2.9.2",
+    "add": "2.0.6",
+    "babili-webpack-plugin": "0.1.2",
+    "concurrently": "3.5.1",
+    "css-loader": "0.28.4",
+    "devtron": "1.4.0",
+    "electron-packager": "9.1.0",
+    "eslint": "4.11.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-babel": "4.1.2",
+    "eslint-plugin-chai-expect": "1.1.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-jest": "21.3.2",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-mocha": "4.11.0",
+    "eslint-plugin-react": "7.5.1",
+    "eslint-plugin-typescript": "0.8.1",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "0.11.2",
+    "friendly-errors-webpack-plugin": "1.6.1",
+    "html-webpack-plugin": "2.28.0",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "21.2.1",
+    "lodash": "4.17.4",
+    "prettier": "1.8.2",
+    "prettier-eslint": "8.2.2",
+    "rimraf": "2.6.2",
+    "style-loader": "0.19.0",
+    "ts-jest": "21.2.3",
+    "ts-loader": "2.3.7",
+    "tslint": "5.8.0",
+    "tslint-config-airbnb": "5.4.2",
+    "tslint-react": "^3.2.0",
+    "typescript": "2.6.1",
+    "wait-on": "2.0.2",
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.5",
+    "webpack-sources": "1.0.1"
+  },
+  "jest": {
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "coveragePathIgnorePatterns": ["/node_modules/", "/jest/"],
+    "collectCoverageFrom": ["**/src/*.{ts,tsx,js}", "!**/node_modules/**", "!**/vendor/**"],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -20
+      }
+    },
+    "setupFiles": ["./jest/shim.js"],
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "moduleNameMapper": {
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "./jest/fileTransformer.js",
+      ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
+    }
+  },
+  "prettier": {
+    "useTabs": false,
+    "printWidth": 100,
+    "tabWidth": 2,
+    "singleQuote": false,
+    "trailingComma": "all",
+    "jsxBracketSameLine": false,
+    "noSemi": true,
+    "rcVerbose": true,
+    "ignorePath": ["webpack"]
+  }
+}
