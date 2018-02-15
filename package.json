@@ -92,10 +92,14 @@
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/jest/"
+      "/jest/",
+      "/config/",
+      "/shared/",
+      "<rootDir>/src/index",
+      "main"
     ],
     "collectCoverageFrom": [
-      "**/src/*.{ts,tsx,js}",
+      "**/src/**/*.{ts,tsx,js}",
       "!**/node_modules/**",
       "!**/vendor/**"
     ],
