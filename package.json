@@ -15,8 +15,7 @@
   "license": "MIT",
   "main": "dist/main.js",
   "scripts": {
-    "dev":
-      "concurrently \"npm run webpack-server\" \"wait-on http://localhost:3013 && npm run electron-dev\"",
+    "dev": "concurrently \"npm run webpack-server\" \"wait-on http://localhost:3013 && npm run electron-dev\"",
     "electron-prod": "electron .",
     "electron-dev": "npm run build-main && electron . --dev",
     "test": "jest --coverage",
@@ -25,12 +24,11 @@
     "webpack-build": "rimraf dist && npm run build-renderer && npm run build-main",
     "build-renderer": "webpack --env=prod --progress --colors",
     "build-main": "webpack --env=main --progress --colors",
-    "electron-package":
-      "electron-packager ./ --out=./builds --overwrite --ignore=node_modules --ignore=e2e --ignore=jest --ignore=devtools --ignore=webpack --ignore=src --ignore=tsconfig.json --ignore=tslint.json --ignore=webpack.config.json --ignore=.idea --ignore=.vscode",
+    "electron-package": "electron-packager ./ --out=./builds --overwrite --ignore=node_modules --ignore=e2e --ignore=jest --ignore=devtools --ignore=webpack --ignore=src --ignore=tsconfig.json --ignore=tslint.json --ignore=webpack.config.json --ignore=.idea --ignore=.vscode",
     "package-app": "npm run webpack-build && npm run electron-package"
   },
   "dependencies": {
-    "electron": "1.7.9",
+    "electron": "1.8.2",
     "electron-log": "2.2.11",
     "electron-updater": "2.16.1",
     "react": "16.1.1",
@@ -92,8 +90,19 @@
   },
   "jest": {
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "coveragePathIgnorePatterns": ["/node_modules/", "/jest/"],
-    "collectCoverageFrom": ["**/src/*.{ts,tsx,js}", "!**/node_modules/**", "!**/vendor/**"],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/jest/",
+      "/config/",
+      "/shared/",
+      "<rootDir>/src/index",
+      "main"
+    ],
+    "collectCoverageFrom": [
+      "**/src/**/*.{ts,tsx,js}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,
@@ -102,14 +111,19 @@
         "statements": -20
       }
     },
-    "setupFiles": ["./jest/shim.js"],
-    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "setupFiles": [
+      "./jest/shim.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     },
     "transform": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "./jest/fileTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./jest/fileTransformer.js",
       ".(ts|tsx)": "./node_modules/ts-jest/preprocessor.js"
     }
   },
@@ -122,6 +136,8 @@
     "jsxBracketSameLine": false,
     "noSemi": true,
     "rcVerbose": true,
-    "ignorePath": ["webpack"]
+    "ignorePath": [
+      "webpack"
+    ]
   }
 }
